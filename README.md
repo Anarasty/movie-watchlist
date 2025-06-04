@@ -71,3 +71,39 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ------
 ### Using react router dom for navigation (Link)
+
+------
+The first thing you need to do when working with context is create an initial state. This will define the starting values for your store. We’ll make a constant called initialState, and it will include a watchList, which is an array of movies. To start, it will just be an empty array. We’ll also add a watched property, which will also be an array of movies. This sets up our initial state.
+
+### GlobalState.jsx
+
+const initialState = {
+    watchlist: [],
+    watched: [],
+}
+
+------
+Next we create a context using createContext, and we’ll export it so we can use it in other parts of the app. We’ll call it GlobalContext, and we’ll pass in the initialState when creating it.To make this context available to other components, we need to create app Provider. App provider is a component that wraps other components and gives them access to the global context.
+Component called GlobalProvider will take in props, and inside of it, will use the useReducer hook. This will give us access to state and dispatch. We’ll use a reducer called AppReducer, which we’ll create in a separate file. Along with the reducer, we’ll also pass the initialState to useReducer.
+
+This setup is similar to how Redux works. We’re building a global store that holds all the app’s state. The reducer is a function that tells the store how to update the state based on certain actions. It returns the new state depending on what happens in the app.
+
+### GlobalState.jsx
+
+export const GlobalProvider = props => {
+    const [state, dispatch] = useReducer(AppReducer, initialState)
+}
+
+------
+The reducer takes two arguments: state and action. For now, we’ll return the state by default. The idea is that when we dispatch an action (which is just an object with a type), the reducer will look at that type and decide how to update the state.
+
+Right now, we’re only handling the default case. As we add more actions later, we’ll expand the switch statement.
+
+### AppReducer.jsx
+
+export default (state, action) => {
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
