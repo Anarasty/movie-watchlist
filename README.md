@@ -11,10 +11,10 @@ This is a global context — basically a mini state manager — where we store t
 This approach is a simpler alternative to Redux, and it’s built into React.
 
 This component does the following:
-	1.	Manages global state using useReducer
-	2.	Listens for state changes and saves everything to localStorage
-	3.	Exposes functions that dispatch actions
-	4.	Wraps the entire app in <GlobalContext.Provider> so we can access global state and functions from any component
+- Manages global state using useReducer
+- Listens for state changes and saves everything to localStorage
+- Exposes functions that dispatch actions
+- Wraps the entire app in <GlobalContext.Provider> so we can access global state and functions from any component
 
 `  useEffect(() => {
     localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
@@ -31,7 +31,7 @@ The state is stored in localStorage, so the user doesn’t lose their data betwe
 This is a regular reducer function — it takes the current state and an action, and returns a new state depending on the action type.
 
 It handles the following actions:
-	•	"ADD_MOVIE_TO_WATCHLIST" — adds a movie to the watchlist
-	•	"REMOVE_MOVIE_FROM_WATCHLIST" — removes a movie by ID from the watchlist
-	•	"ADD_MOVIE_TO_WATCHED" — if the movie hasn’t been watched yet, moves it from the watchlist to the watched list
-	•	"MOVE_TO_WATCHLIST" — moves a movie back from watched to watchlist
+- "ADD_MOVIE_TO_WATCHLIST" — adds a movie to the watchlist
+- "REMOVE_MOVIE_FROM_WATCHLIST" — removes a movie by ID from the watchlist
+- "ADD_MOVIE_TO_WATCHED" — if the movie hasn’t been watched yet, moves it from the watchlist to the watched list
+- "MOVE_TO_WATCHLIST" — moves a movie back from watched to watchlist
