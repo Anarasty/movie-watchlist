@@ -1,3 +1,8 @@
+# FAQ
+
+## Deployment Link
+https://anarasty.github.io/movie-watchlist/
+
 ### Using react router dom for navigation (Link)
 
 Important thing while working with context is creating an initial state. This will define the starting values for the store.Create a constant called initialState, and it will include a watchList, which is an array of movies. To start, it will just be an empty array. We’ll also add a watched property, which will also be an array of movies. This sets up the initial state.
